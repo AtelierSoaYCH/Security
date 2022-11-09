@@ -1,5 +1,6 @@
 package com.auth.demo.service;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,10 @@ public class UserService implements UserDetailsService {
 		User user = userRepository.findUserWithName(username)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 		return user;
+	}
+
+	public List<User> findAll() {
+		return userRepository.findAll();
 	}
 
 }
